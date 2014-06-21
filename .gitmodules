@@ -1,3 +1,3 @@
 [submodule "wiki"]
 	path = wiki
-	url = git@bitbucket.org:fmobstudio/muf-website.git/wiki
+	url = git@git.fmobstudio.com.br:fmobstudio/muf-website.git/wiki
