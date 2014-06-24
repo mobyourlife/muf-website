@@ -59,9 +59,10 @@ WSGI_APPLICATION = 'mobyourface.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mysql.connector.django',
+        'HOST': 'localhost',
         'NAME': 'mobyourface',
-        'USER': 'debug2win',
-        'PASSWORD': 'ThisIsSparta',
+        'USER': 'root',
+        'PASSWORD': 'eugenia',
         'OPTIONS': {
             'autocommit': True,
         }
