@@ -20,6 +20,7 @@ class FacebookUser(models.Model):
 class FacebookCover(models.Model):
     fb_user = models.ForeignKey(FacebookUser)
     fb_cvid = models.BigIntegerField(default=0, primary_key=True)
+    sync_time = models.DateTimeField('Date Synced')
     source = models.CharField(max_length=500)
     source_downloaded = models.BooleanField(default=False)
 
