@@ -2,8 +2,9 @@ from django.db import models
 
 
 # Contas de Facebook cadastradas
+# TO DO: funcionar também para contas pessoais
 class FacebookUser(models.Model):
-    fb_uid = models.BigIntegerField(default=0)
+    fb_uid = models.BigIntegerField(default=0, primary_key=True)
     username = models.CharField(max_length=50)
     category = models.CharField(max_length=50)
     about = models.CharField(max_length=500)
@@ -18,6 +19,7 @@ class FacebookUser(models.Model):
 # Fotos de capa
 class FacebookCover(models.Model):
     fb_user = models.ForeignKey(FacebookUser)
+    fb_cvid = models.BigIntegerField(default=0, primary_key=True)
     source = models.CharField(max_length=500)
     source_downloaded = models.BooleanField(default=False)
 
@@ -25,7 +27,7 @@ class FacebookCover(models.Model):
 # Álbuns sincronizados
 class FacebookAlbum(models.Model):
     fb_user = models.ForeignKey(FacebookUser)
-    fb_aid = models.BigIntegerField(default=0)
+    fb_aid = models.BigIntegerField(default=0, primary_key=True)
     name = models.CharField(max_length=100)
     type = models.CharField(max_length=10)
     count = models.IntegerField(default=0)
@@ -36,9 +38,8 @@ class FacebookAlbum(models.Model):
 # Fotos dos álbuns
 class FacebookPhoto(models.Model):
     fb_album = models.ForeignKey(FacebookAlbum)
+    fb_pid = models.BigIntegerField(default=0, primary_key=True)
     thumb_source = models.CharField(max_length=250)
-    regular_source = models.CharField(max_length=250)
     full_source = models.CharField(max_length=250)
     thumb_downloaded = models.BooleanField(default=False)
-    regular_downloaded = models.BooleanField(default=False)
     full_downloaded = models.BooleanField(default=False)
