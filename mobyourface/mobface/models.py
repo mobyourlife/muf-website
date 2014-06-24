@@ -16,7 +16,7 @@ class FacebookUser(models.Model):
 
 
 # Fotos de capa
-class FacebookCovers(models.Model):
+class FacebookCover(models.Model):
     fb_user = models.ForeignKey(FacebookUser)
     source = models.CharField(max_length=500)
     source_downloaded = models.BooleanField(default=False)
@@ -34,7 +34,7 @@ class FacebookAlbum(models.Model):
 
 
 # Fotos dos álbuns
-class FacebookPhotos(models.Model):
+class FacebookPhoto(models.Model):
     fb_album = models.ForeignKey(FacebookAlbum)
     thumb_source = models.CharField(max_length=250)
     regular_source = models.CharField(max_length=250)

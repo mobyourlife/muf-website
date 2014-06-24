@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/mobyourface.iml" filepath="$PROJECT_DIR$/.idea/mobyourface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../fmob-warehouse/warehouse/.idea/warehouse.iml" filepath="$PROJECT_DIR$/../../fmob-warehouse/warehouse/.idea/warehouse.iml" />
     </modules>
   </component>
 </project>
