@@ -58,8 +58,13 @@ WSGI_APPLICATION = 'mobyourface.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, '../../database/mobyourface.sqlite3'),
+        'ENGINE': 'mysql.connector.django',
+        'NAME': 'mobyourface',
+        'USER': 'debug2win',
+        'PASSWORD': 'ThisIsSparta',
+        'OPTIONS': {
+            'autocommit': True,
+        }
     }
 }
 
