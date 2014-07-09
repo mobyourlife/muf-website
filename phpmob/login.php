@@ -1,7 +1,12 @@
 <?php
 require_once "backend/config.php";
 
-$redirect = sprintf("Location: https://www.facebook.com/dialog/oauth?client_id=%s&redirect_uri=%s", $app_id, $_SERVER["HTTP_REFERER"]);
+$params = array();
+$params["client_id"] = $app_id;
+$params["redirect_uri"] = sprintf("%s://%s/%s/backend/fblogin", $website_proto, $website_host, $website_root);
+$params["state"] = urlencode($_SESSION['XSRF_TOKEN']);
+
+$redirect = MakeLocation("https://www.facebook.com/dialog/oauth", $params);
 header($redirect);
 
 ?>
