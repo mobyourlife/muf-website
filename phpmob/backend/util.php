@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 /* Cria um token anti XSRF caso ainda não exista */
 if (!$_SESSION['XSRF_TOKEN'])
 {

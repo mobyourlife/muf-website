@@ -1,6 +1,4 @@
 <?php
-require_once 'library/facebook.php';
-require_once 'util.php';
 
 /* Configurações do aplicativo no Facebook. */
 $app_id = "{app_id}";
@@ -17,12 +15,5 @@ $mysql_hostname = "{mysql_hostname}";
 $mysql_database = "{mysql_database}";
 $mysql_username = "{mysql_username}";
 $mysql_password = "{mysql_password}";
-
-/* Inicializa a API do Facebook. */
-$facebook = new Facebook(array(
-	'appId' => $app_id,
-	'secret' => $app_secret,
-	'cookie' => true
-));
 
 ?>

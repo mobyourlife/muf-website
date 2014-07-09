@@ -1,5 +1,5 @@
 <?php
-require "backend/auth.php";
+$user_profile['id'] = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
