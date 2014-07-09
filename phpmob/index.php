@@ -43,7 +43,7 @@ require "backend/auth.php";
           <a class="navbar-brand" href="#">Mob Your Face</a>
         </div>
         <div class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="form">
+          <form method="post" action="./login" class="navbar-form navbar-right" role="form">
 			<?php if ($user_profile['id'] != 0) { ?>
 			<label><?php print($user_profile['name']); ?></label>
 			<?php } else { ?>
