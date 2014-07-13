@@ -28,28 +28,48 @@ use Facebook\GraphObject;
 /* Inicializa o aplicativo com seu ID e segredo. */
 FacebookSession::setDefaultApplication($app_id, $app_secret);
 
-/* Inicializa o login helper com a URL de redirecionamento. */
-$redirect = sprintf("%s://%s/%s/login", $website_proto, $website_host, $website_root);
-$helper = new FacebookRedirectLoginHelper($redirect);
+/* Verifica se o login já está armazenado. */
+if (isset($_SESSION['FB_LOGIN']))
+{
+	try
+	{
+		$session = unserialize($_SESSION['FB_LOGIN']);
+	}
+	catch (Exception $ex)
+	{
+		unset($session);
+		unset($_SESSION['FB_LOGIN']);
+	}
+}
 
-try
+/* Inicializa o login helper com a URL de redirecionamento. */
+if (!isset($session))
 {
-	$session = $helper->getSessionFromRedirect();
-}
-catch( FacebookRequestException $ex )
-{
-	/* TODO: tratar erros do Facebook */
-}
-catch( Exception $ex )
-{
-	/* TODO: tratar outros tipos de erro */
+	$redirect = sprintf("%s://%s/%s/login", $website_proto, $website_host, $website_root);
+	$helper = new FacebookRedirectLoginHelper($redirect);
+	
+	try
+	{
+		$session = $helper->getSessionFromRedirect();
+		$_SESSION['FB_LOGIN'] = serialize($session);
+	}
+	catch( FacebookRequestException $ex )
+	{
+		/* TODO: tratar erros do Facebook */
+	}
+	catch( Exception $ex )
+	{
+		/* TODO: tratar outros tipos de erro */
+	}
 }
 
 /* Verifica se a sessão foi criada. */
 if (isset($session))
 {
+	var_dump($session);
+
 	/* Solicita os dados do usuário logado. */
-	$request = new FacebookRequest( $session, 'GET', '/me' );
+	$request = new FacebookRequest($session, 'GET', '/me');
 	$response = $request->execute();
 	$graphObject = $response->getGraphObject();
 
