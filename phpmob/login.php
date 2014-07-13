@@ -1,20 +1,20 @@
 <?php
-require_once "backend/config.php";
+require_once "config.inc.php";
 
 session_start();
 
-require_once('Facebook/FacebookSession.php');
-require_once('Facebook/FacebookRedirectLoginHelper.php');
-require_once('Facebook/FacebookRequest.php');
-require_once('Facebook/FacebookResponse.php');
-require_once('Facebook/FacebookSDKException.php');
-require_once('Facebook/FacebookRequestException.php');
-require_once('Facebook/FacebookAuthorizationException.php');
-require_once('Facebook/Entities/AccessToken.php');
-require_once('Facebook/HttpClients/FacebookCurl.php');
-require_once('Facebook/HttpClients/FacebookHttpable.php');
-require_once('Facebook/HttpClients/FacebookCurlHttpClient.php');
-require_once('Facebook/GraphObject.php');
+require_once "Facebook/FacebookSession.php";
+require_once "Facebook/FacebookRedirectLoginHelper.php";
+require_once "Facebook/FacebookRequest.php";
+require_once "Facebook/FacebookResponse.php";
+require_once "Facebook/FacebookSDKException.php";
+require_once "Facebook/FacebookRequestException.php";
+require_once "Facebook/FacebookAuthorizationException.php";
+require_once "Facebook/Entities/AccessToken.php";
+require_once "Facebook/HttpClients/FacebookCurl.php";
+require_once "Facebook/HttpClients/FacebookHttpable.php";
+require_once "Facebook/HttpClients/FacebookCurlHttpClient.php";
+require_once "Facebook/GraphObject.php";
 
 use Facebook\FacebookSession;
 use Facebook\FacebookRedirectLoginHelper;
@@ -33,25 +33,25 @@ if (isset($_SESSION['FB_LOGIN']))
 {
 	try
 	{
-		$session = unserialize($_SESSION['FB_LOGIN']);
+		$fb_session = unserialize($_SESSION['FB_LOGIN']);
 	}
 	catch (Exception $ex)
 	{
-		unset($session);
+		unset($fb_session);
 		unset($_SESSION['FB_LOGIN']);
 	}
 }
 
 /* Inicializa o login helper com a URL de redirecionamento. */
-if (!isset($session))
+if (!isset($fb_session))
 {
 	$redirect = sprintf("%s://%s/%s/login", $website_proto, $website_host, $website_root);
 	$helper = new FacebookRedirectLoginHelper($redirect);
 	
 	try
 	{
-		$session = $helper->getSessionFromRedirect();
-		$_SESSION['FB_LOGIN'] = serialize($session);
+		$fb_session = $helper->getSessionFromRedirect();
+		$_SESSION['FB_LOGIN'] = serialize($fb_session);
 	}
 	catch( FacebookRequestException $ex )
 	{
@@ -64,16 +64,17 @@ if (!isset($session))
 }
 
 /* Verifica se a sessão foi criada. */
-if (isset($session))
+if (isset($fb_session))
 {
 	/* Solicita os dados do usuário logado. */
-	$request = new FacebookRequest($session, 'GET', '/me');
+	$request = new FacebookRequest($fb_session, 'GET', '/me');
 	$response = $request->execute();
 	$fb_profile = $response->getGraphObject();
+	var_dump($fb_profile);
 }
 else
 {
-	$loginurl = $helper->getLoginUrl();
+	$fb_loginurl = $helper->getLoginUrl();
 }
 
 ?>

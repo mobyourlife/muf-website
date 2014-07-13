@@ -1,5 +1,5 @@
 <?php
-$user_profile['id'] = 0;
+require_once "backend/login.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,9 +43,9 @@ $user_profile['id'] = 0;
           <a class="navbar-brand" href="#">Mob Your Face</a>
         </div>
         <div class="navbar-collapse collapse">
-          <form method="post" action="./login" class="navbar-form navbar-right" role="form">
-			<?php if ($user_profile['id'] != 0) { ?>
-			<label><?php print($user_profile['name']); ?></label>
+          <form method="post" action="<?php print(isset($fb_loginurl) ? $fb_loginurl : "."); ?>" class="navbar-form navbar-right" role="form">
+			<?php if (isset($fb_profile)) { ?>
+			<label><?php print($fb_profile->getProperty('name')); ?></label>
 			<?php } else { ?>
             <button type="submit" class="btn btn-primary">Entrar</button>
 			<?php } ?>
