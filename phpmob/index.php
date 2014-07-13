@@ -1,5 +1,5 @@
 <?php
-require_once "login.php";
+require_once "login.inc.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +15,9 @@ require_once "login.php";
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Documentation extras -->
+	<link href="css/docs.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/mobyourface.css" rel="stylesheet">
@@ -30,38 +33,9 @@ require_once "login.php";
   </head>
 
   <body>
+	<div id="fb-root"></div>
 
-    <div class="navbar navbar-muf navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Mob Your Face</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <form method="post" action="<?php print(isset($fb_loginurl) ? $fb_loginurl : "."); ?>" class="navbar-form navbar-right" role="form">
-			<?php if (isset($fb_profile)) { ?>
-			<div class="btn-group">
-			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-				<span class="glyphicon glyphicon-user"></span> <?php print($fb_profile->getProperty('name')); ?> <span class="caret"></span>
-			  </button>
-			  <ul class="dropdown-menu" role="menu">
-				<li><a href="#">Meu perfil</a></li>
-				<li class="divider"></li>
-				<li><a href="./logout">Sair</a></li>
-			  </ul>
-			</div>
-			<?php } else { ?>
-            <button type="submit" class="btn btn-primary">Entrar</button>
-			<?php } ?>
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </div>
+    <?php require "navbar.inc.php"; ?>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
@@ -91,13 +65,29 @@ require_once "login.php";
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
       </div>
-
-      <hr>
-
-      <footer>
-        <p>&copy; Mob Your Face 2014</p>
-      </footer>
     </div> <!-- /container -->
+	
+	<footer class="bs-docs-footer" role="contentinfo">
+		<div class="container">
+			<div class="bs-docs-social">
+				<div class="fb-like-box" data-href="https://www.facebook.com/pages/Mob-Your-Face/1446731825581145" data-width="400" data-height="210" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
+			</div>
+
+		<p>Mob Your Face &copy; 2014 - Todos os direitos reservados</p>
+		
+		<ul class="bs-docs-footer-links muted">
+			<li><a href="http://www.fmobstudio.com.br">F&gt;MOB STUDIO</a></li>
+			<li>&middot;</li>
+			<li><a href="./missao">Missão</a></li>
+			<li>&middot;</li>
+			<li><a href="./visao">Visão</a></li>
+			<li>&middot;</li>
+			<li><a href="./valores">Valores</a></li>
+			<li>&middot;</li>
+			<li><a href="./suporte-tecnico">Suporte Técnico</a></li>
+		</ul>
+		</div>
+	</footer>
 
 
     <!-- Bootstrap core JavaScript
@@ -105,5 +95,6 @@ require_once "login.php";
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/facebook.js"></script>
   </body>
 </html>

@@ -74,7 +74,7 @@ if (isset($fb_session))
 	
 	if (isset($fb_redirected))
 	{
-		header("Location: ./");
+		header("Location: ./registrar");
 	}
 }
 else
