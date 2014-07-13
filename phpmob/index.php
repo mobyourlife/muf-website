@@ -17,24 +17,56 @@ require_once "core.inc.php";
     </div>
 
     <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Por que?</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">Mais detalhes &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>O que?</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">Mais detalhes &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Como?</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">Mais detalhes &raquo;</a></p>
-        </div>
-      </div>
-    </div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-lg-4">
+				<div class="box">							
+					<div class="icon">
+						<div class="image"><i class="fa fa-thumbs-o-up"></i></div>
+						<div class="info">
+							<h3 class="title">O que?</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper.</p>
+							<div class="more">
+								<a href="#" title="Veja o que é o Mob Your Face">Saiba mais <i class="fa fa-angle-double-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="space"></div>
+				</div> 
+			</div>
+				
+			<div class="col-xs-12 col-sm-6 col-lg-4">
+				<div class="box">							
+					<div class="icon">
+						<div class="image"><i class="fa fa-flag"></i></div>
+						<div class="info">
+							<h3 class="title">Por que?</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper.</p>
+							<div class="more">
+								<a href="#" title="Entenda por que o Mob Your Face foi criado">Saiba mais <i class="fa fa-angle-double-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="space"></div>
+				</div> 
+			</div>
+				
+			<div class="col-xs-12 col-sm-6 col-lg-4">
+				<div class="box">							
+					<div class="icon">
+						<div class="image"><i class="fa fa-desktop"></i></div>
+						<div class="info">
+							<h3 class="title">Como?</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper.</p>
+							<div class="more">
+								<a href="#" title="Saiba como o Mob Your Face funciona">Saiba mais <i class="fa fa-angle-double-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="space"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 	
 	<?php require "footer.inc.php"; ?>
   </body>
