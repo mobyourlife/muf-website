@@ -50,6 +50,7 @@ if (!isset($fb_session))
 	
 	try
 	{
+		$fb_redirected = true;
 		$fb_session = $helper->getSessionFromRedirect();
 		$_SESSION['FB_LOGIN'] = serialize($fb_session);
 	}
@@ -70,7 +71,11 @@ if (isset($fb_session))
 	$request = new FacebookRequest($fb_session, 'GET', '/me');
 	$response = $request->execute();
 	$fb_profile = $response->getGraphObject();
-	var_dump($fb_profile);
+	
+	if (isset($fb_redirected))
+	{
+		header("Location: ./");
+	}
 }
 else
 {

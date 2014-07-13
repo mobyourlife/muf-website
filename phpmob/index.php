@@ -1,5 +1,5 @@
 <?php
-require_once "backend/login.php";
+require_once "login.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +17,7 @@ require_once "backend/login.php";
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/jumbotron.css" rel="stylesheet">
+    <link href="css/mobyourface.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
@@ -31,7 +31,7 @@ require_once "backend/login.php";
 
   <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-muf navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -45,7 +45,16 @@ require_once "backend/login.php";
         <div class="navbar-collapse collapse">
           <form method="post" action="<?php print(isset($fb_loginurl) ? $fb_loginurl : "."); ?>" class="navbar-form navbar-right" role="form">
 			<?php if (isset($fb_profile)) { ?>
-			<label><?php print($fb_profile->getProperty('name')); ?></label>
+			<div class="btn-group">
+			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				<span class="glyphicon glyphicon-user"></span> <?php print($fb_profile->getProperty('name')); ?> <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" role="menu">
+				<li><a href="#">Meu perfil</a></li>
+				<li class="divider"></li>
+				<li><a href="./logout">Sair</a></li>
+			  </ul>
+			</div>
 			<?php } else { ?>
             <button type="submit" class="btn btn-primary">Entrar</button>
 			<?php } ?>

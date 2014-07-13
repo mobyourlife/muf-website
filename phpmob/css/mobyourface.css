@@ -1,0 +1,19 @@
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.navbar-muf {
+	background-color: #fff;
+	border-color: #e7e7e7;
+}
+
+.jumbotron {
+	background-color: #428bca;
+}
+
+.btn-primary {
+	background-color: #fff;
+	border-color: #3071a9;
+	color: #000;
+}
