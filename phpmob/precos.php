@@ -59,7 +59,7 @@ require_once "core.inc.php";
 		
 		<p>
 			Compre o seu site por apenas 12 parcelas de R$ 99,90 com direito a atualizações ilimitadas! Use o seu site para fins pessoais ou profissionais.<br/>
-			A partir do segundo ano, pague apenas a taxa de manutenção de R$ 60,00 por ano!
+			A partir do segundo ano, pague apenas a taxa de manutenção de R$ 59,90 por ano!
 		</p>
 	</div>
 	
