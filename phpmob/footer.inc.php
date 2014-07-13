@@ -5,17 +5,17 @@
 		</div>
 		
 		<ul class="bs-docs-footer-links muted">
-			<li><a href="http://www.fmobstudio.com.br">F&gt;MOB STUDIO</a></li>
+			<li><a href="http://www.fmobstudio.com.br" target="_blank">F&gt;MOB STUDIO</a></li>
 			<li>&middot;</li>
-			<li><a href="../como-funciona">Como Funciona</a></li>
+			<li><a href="<?php printlink("como-funciona"); ?>">Como Funciona</a></li>
 			<li>&middot;</li>
-			<li><a href="../duvidas-frequentes">Dúvidas Frequentes</a></li>
+			<li><a href="<?php printlink("duvidas-frequentes"); ?>">Dúvidas Frequentes</a></li>
 			<li>&middot;</li>
-			<li><a href="../precos">Preços</a></li>
+			<li><a href="<?php printlink("precos"); ?>">Preços</a></li>
 			<li>&middot;</li>
-			<li><a href="../suporte-tecnico">Suporte Técnico</a></li>
+			<li><a href="<?php printlink("suporte-tecnico"); ?>">Suporte Técnico</a></li>
 			<li>&middot;</li>
-			<li><a href="../Contato">Contato</a></li>
+			<li><a href="<?php printlink("contato"); ?>">Contato</a></li>
 		</ul>
 		
 		<p>Mob Your Face &copy; 2014 - Todos os direitos reservados</p>
@@ -28,5 +28,5 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/facebook.js"></script>
+<script src="<?php printlink("js/bootstrap.min.js"); ?>"></script>
+<script src="<?php printlink("js/facebook.js"); ?>"></script>

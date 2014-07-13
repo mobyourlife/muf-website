@@ -7,13 +7,13 @@
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	  </button>
-	  <a class="navbar-brand" href="#"><img src="img/logo.png" alt="Mob Your Face"/></a>
+	  <a class="navbar-brand" href="<?php printlink(); ?>"><img src="img/logo.png" alt="Mob Your Face"/></a>
 	  <ul class="nav navbar-nav">
-        <li class="active"><a href="../como-funciona">Como Funciona</a></li>
-        <li><a href="../duvidas-frequentes">Dúvidas Frequentes</a></li>
-        <li><a href="../precos">Preços</a></li>
-        <li><a href="../suporte-tecnico">Suporte Técnico</a></li>
-        <li><a href="../Contato">Contato</a></li>
+        <li class="active"><a href="<?php printlink("como-funciona"); ?>">Como Funciona</a></li>
+        <li><a href="<?php printlink("duvidas-frequentes"); ?>">Dúvidas Frequentes</a></li>
+        <li><a href="<?php printlink("precos"); ?>">Preços</a></li>
+        <li><a href="<?php printlink("suporte-tecnico"); ?>">Suporte Técnico</a></li>
+        <li><a href="<?php printlink("contato"); ?>">Contato</a></li>
       </ul>
 	</div>
 	
@@ -25,13 +25,14 @@
 			<span class="glyphicon glyphicon-user"></span> <?php print($fb_profile->getProperty('name')); ?> <span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu" role="menu">
-			<li><a href="#">Meu perfil</a></li>
+			<li><a href="<?php printlink("meu-perfil"); ?>">Meu perfil</a></li>
 			<li class="divider"></li>
-			<li><a href="./logout">Sair</a></li>
+			<li><a href="<?php printlink("sair"); ?>">Sair</a></li>
 		  </ul>
 		</div>
 		<?php } else { ?>
 		<button type="submit" class="btn btn-primary">Entrar</button>
+		<button type="submit" class="btn btn-primary">Cadastrar</button>
 		<?php } ?>
 	  </form>
 	</div><!--/.navbar-collapse -->

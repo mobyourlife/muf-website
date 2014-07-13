@@ -4,21 +4,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="<?php printlink("favicon.ico"); ?>">
 
     <title>Mob Your Face</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php printlink("css/bootstrap.min.css"); ?>" rel="stylesheet">
 	
 	<!-- Documentation extras -->
-	<link href="css/docs.min.css" rel="stylesheet">
+	<link href="<?php printlink("css/docs.min.css"); ?>" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/mobyourface.css" rel="stylesheet">
+    <link href="<?php printlink("css/mobyourface.css"); ?>" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="<?php printlink("js/ie10-viewport-bug-workaround.js"); ?>"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

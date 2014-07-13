@@ -1,8 +1,4 @@
 <?php
-require_once "config.inc.php";
-
-session_start();
-
 require_once "Facebook/FacebookSession.php";
 require_once "Facebook/FacebookRedirectLoginHelper.php";
 require_once "Facebook/FacebookRequest.php";
@@ -46,6 +42,7 @@ if (isset($_SESSION['FB_LOGIN']))
 if (!isset($fb_session))
 {
 	$redirect = sprintf("%s://%s/%s/login", $website_proto, $website_host, $website_root);
+	$redirect = str_replace("//", "//", $redirect);
 	$helper = new FacebookRedirectLoginHelper($redirect);
 	
 	try
