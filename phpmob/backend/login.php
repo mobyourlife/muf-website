@@ -66,19 +66,14 @@ if (!isset($session))
 /* Verifica se a sessão foi criada. */
 if (isset($session))
 {
-	var_dump($session);
-
 	/* Solicita os dados do usuário logado. */
 	$request = new FacebookRequest($session, 'GET', '/me');
 	$response = $request->execute();
-	$graphObject = $response->getGraphObject();
-
-	/* Imprime a resposta. */
-	var_dump($graphObject, 1);
+	$fb_profile = $response->getGraphObject();
 }
 else
 {
-	printf("<a href=\"%s\">Login</a>", $helper->getLoginUrl());
+	$loginurl = $helper->getLoginUrl();
 }
 
 ?>
