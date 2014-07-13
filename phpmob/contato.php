@@ -17,7 +17,7 @@ require_once "core.inc.php";
 
     <div class="container">
 		<div class="row">
-		  <div class="col-md-8 col-md-offset-2">
+		  <div class="col-md-8">
 			<div class="well well-sm">
 			  <form class="form-horizontal" action="" method="post">
 			  <fieldset>
@@ -57,6 +57,21 @@ require_once "core.inc.php";
 			  </form>
 			</div>
 		  </div>
+		  <div class="col-md-4">
+			<form>
+			<legend><span class="glyphicon glyphicon-globe"></span> Nossa localização</legend>
+			<address>
+				<strong>F&gt;MOB STUDIO</strong><br/>
+				Rua Luiz Dalincourt 325, Bosque<br/>
+				Campinas, SP<br/>
+				<abbr title="Telefone comercial">F:</abbr> (19) 3032-1279
+			</address>
+			<address>
+				<strong>Suporte Técnico</strong><br>
+				<a href="mailto:suporte@mobyourface.com.br">suporte@mobyourface.com.br</a>
+			</address>
+			</form>
+		</div>
 		</div>
 	</div>
 	
