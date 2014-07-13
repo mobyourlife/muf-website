@@ -7,9 +7,10 @@
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	  </button>
-	  <a class="navbar-brand" href="#">Mob Your Face</a>
+	  <a class="navbar-brand" href="#"><img src="img/logo.png" alt="Mob Your Face"/></a>
 	  <ul class="nav navbar-nav">
-        <li class="active"><a href="../como-funciona">Como funciona</a></li>
+        <li class="active"><a href="../como-funciona">Como Funciona</a></li>
+        <li><a href="../duvidas-frequentes">Dúvidas Frequentes</a></li>
         <li><a href="../precos">Preços</a></li>
         <li><a href="../suporte-tecnico">Suporte Técnico</a></li>
         <li><a href="../Contato">Contato</a></li>

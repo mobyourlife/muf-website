@@ -7,13 +7,15 @@
 		<ul class="bs-docs-footer-links muted">
 			<li><a href="http://www.fmobstudio.com.br">F&gt;MOB STUDIO</a></li>
 			<li>&middot;</li>
-			<li><a href="./missao">Missão</a></li>
+			<li><a href="../como-funciona">Como Funciona</a></li>
 			<li>&middot;</li>
-			<li><a href="./visao">Visão</a></li>
+			<li><a href="../duvidas-frequentes">Dúvidas Frequentes</a></li>
 			<li>&middot;</li>
-			<li><a href="./valores">Valores</a></li>
+			<li><a href="../precos">Preços</a></li>
 			<li>&middot;</li>
-			<li><a href="./suporte-tecnico">Suporte Técnico</a></li>
+			<li><a href="../suporte-tecnico">Suporte Técnico</a></li>
+			<li>&middot;</li>
+			<li><a href="../Contato">Contato</a></li>
 		</ul>
 		
 		<p>Mob Your Face &copy; 2014 - Todos os direitos reservados</p>
