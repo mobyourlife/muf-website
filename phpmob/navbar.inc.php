@@ -8,7 +8,14 @@
 		<span class="icon-bar"></span>
 	  </button>
 	  <a class="navbar-brand" href="#">Mob Your Face</a>
+	  <ul class="nav navbar-nav">
+        <li class="active"><a href="../como-funciona">Como funciona</a></li>
+        <li><a href="../precos">Preços</a></li>
+        <li><a href="../suporte-tecnico">Suporte Técnico</a></li>
+        <li><a href="../Contato">Contato</a></li>
+      </ul>
 	</div>
+	
 	<div class="navbar-collapse collapse">
 	  <form method="post" action="<?php print(isset($fb_loginurl) ? $fb_loginurl : "."); ?>" class="navbar-form navbar-right" role="form">
 		<?php if (isset($fb_profile)) { ?>
