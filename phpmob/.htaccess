@@ -1,3 +1,8 @@
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.php [NC,L]
+Options -Indexes
+ErrorDocument 403 /muf/403
+ErrorDocument 404 /muf/404
+ErrorDocument 500 /muf/500
+ErrorDocument 501 /muf/501
+ErrorDocument 502 /muf/502
+ErrorDocument 503 /muf/503
+ErrorDocument 504 /muf/504
