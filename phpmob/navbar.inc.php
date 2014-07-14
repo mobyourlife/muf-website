@@ -9,11 +9,11 @@
 	  </button>
 	  <a class="navbar-brand" href="<?php printlink(); ?>"><img src="<?php printlink("img/logo.png"); ?>" alt="Mob Your Face"/></a>
 	  <ul class="nav navbar-nav">
-		<li class="active"><a href="<?php printlink("como-funciona"); ?>">Como Funciona</a></li>
-		<li><a href="<?php printlink("duvidas-frequentes"); ?>">Dúvidas Frequentes</a></li>
-		<li><a href="<?php printlink("precos"); ?>">Preços</a></li>
-		<li><a href="<?php printlink("suporte-tecnico"); ?>">Suporte Técnico</a></li>
-		<li><a href="<?php printlink("contato"); ?>">Contato</a></li>
+		<li<?php activelink("como-funciona"); ?>><a href="<?php printlink("como-funciona"); ?>">Como Funciona</a></li>
+		<li<?php activelink("duvidas-frequentes"); ?>><a href="<?php printlink("duvidas-frequentes"); ?>">Dúvidas Frequentes</a></li>
+		<li<?php activelink("precos"); ?>><a href="<?php printlink("precos"); ?>">Preços</a></li>
+		<li<?php activelink("suporte-tecnico"); ?>><a href="<?php printlink("suporte-tecnico"); ?>">Suporte Técnico</a></li>
+		<li<?php activelink("contato"); ?>><a href="<?php printlink("contato"); ?>">Contato</a></li>
       </ul>
 	</div>
 	

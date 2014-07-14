@@ -10,4 +10,12 @@ function printlink($resource = "")
 	return printf("%s/%s", $website_root, $resource);
 }
 
+function activelink($resource)
+{
+	if (basename($_SERVER['SCRIPT_NAME'], ".php") == $resource)
+	{
+		print(" class=\"active\"");
+	}
+}
+
 ?>

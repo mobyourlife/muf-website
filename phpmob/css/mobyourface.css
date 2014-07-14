@@ -19,7 +19,7 @@ body {
 }
 
 .jumbotron {
-	background-color: #8ac0ee;
+	background-color: #009fe3;
 	background-image: url(../img/jumbg.jpg);
 	background-repeat: repeat;
 	color: #fff;
@@ -37,6 +37,15 @@ body {
 
 .center {
 	text-align: center;
+}
+
+ul.navbar-nav li.active {
+	background-color: #4fc1f1;
+	color: #fff;
+}
+
+ul.navbar-nav li.active a {
+	color: #fff;
 }
 
 /* Páginas de erro amigáveis */
