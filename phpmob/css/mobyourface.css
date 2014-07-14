@@ -48,6 +48,14 @@ ul.navbar-nav li.active a {
 	color: #fff;
 }
 
+div.notice {
+	margin-top: 50px;
+}
+
+div.notice span.label {
+	padding: 5px 20px;
+}
+
 /* Páginas de erro amigáveis */
 
 .error-template {
@@ -155,6 +163,7 @@ ul.navbar-nav li.active a {
 	display: table;     
 	width: 100%;
 	position: relative;
+	margin-bottom: 64px;
 }
 
 .process-step button[disabled] {

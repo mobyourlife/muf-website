@@ -36,8 +36,15 @@ require_once "core.inc.php";
 				</div> 
 			</div>
 		</div>
+		<div class="alert alert-info" role="alert">
+			Aguardando login com Facebook...
+		</div>
+		<div>
+			<button class="btn btn-lg btn-primary" onclick="facebookPopup('<?php print(isset($fb_loginurl) ? $fb_loginurl : ''); ?>'); ">Entrar com Facebook</button>
+		</div>
 	</div>
 	
 	<?php require "footer.inc.php"; ?>
+	<script src="<?php printlink("js/muf.social-login.js"); ?>"></script>
   </body>
 </html>

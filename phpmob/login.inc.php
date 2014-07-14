@@ -41,13 +41,12 @@ if (isset($_SESSION['FB_LOGIN']))
 /* Inicializa o login helper com a URL de redirecionamento. */
 if (!isset($fb_session))
 {
-	$redirect = sprintf("%s://%s/%s/login", $website_proto, $website_host, $website_root);
+	$redirect = sprintf("%s://%s/%s/facebook-login", $website_proto, $website_host, $website_root);
 	$redirect = str_replace("//", "//", $redirect);
 	$helper = new FacebookRedirectLoginHelper($redirect);
 	
 	try
 	{
-		$fb_redirected = true;
 		$fb_session = $helper->getSessionFromRedirect();
 		$_SESSION['FB_LOGIN'] = serialize($fb_session);
 	}
@@ -68,11 +67,6 @@ if (isset($fb_session))
 	$request = new FacebookRequest($fb_session, 'GET', '/me');
 	$response = $request->execute();
 	$fb_profile = $response->getGraphObject();
-	
-	if (isset($fb_redirected))
-	{
-		header("Location: ./");
-	}
 }
 else
 {

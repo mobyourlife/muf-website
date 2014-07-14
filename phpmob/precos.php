@@ -24,7 +24,7 @@ require_once "core.inc.php";
 					</div>
 					<div class="panel-body text-center">
 						<p class="lead">
-							<strong>12 x R$ 99,90</strong></p>
+							<strong>12 x R$ 99,90</strong><em>*</em></p>
 					</div>
 					<ul class="list-group list-group-flush text-center">
 						<li class="list-group-item"><i class="icon-ok text-danger"></i>Uso pessoal e profissional</li>
@@ -57,9 +57,16 @@ require_once "core.inc.php";
 			</div>
 		</div>
 		
-		<p>
-			Compre o seu site por apenas 12 parcelas de R$ 99,90 com direito a atualizações ilimitadas! Use o seu site para fins pessoais ou profissionais.<br/>
-			A partir do segundo ano, pague apenas a taxa de manutenção de R$ 59,90 por ano!
+		<div>
+			<p>
+				Compre o seu site por apenas 12 parcelas de R$ 99,90 com direito a atualizações ilimitadas! Use o seu site para fins pessoais ou profissionais.<br/>
+				A partir do segundo ano, pague apenas a taxa de manutenção de R$ 59,90 por ano!
+			</p>
+		</div>
+		
+		<div class="notice">
+			<span class="label label-primary">* O preço à vista para o primeiro ano é de R$ 999,90 e pode ser parcelado em até 12 vezes com juros.</span>
+		</div>
 		</p>
 	</div>
 	
