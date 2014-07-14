@@ -31,8 +31,8 @@
 		  </ul>
 		</div>
 		<?php } else { ?>
-		<button type="submit" class="btn btn-primary">Entrar</button>
-		<button type="submit" class="btn btn-primary">Cadastrar</button>
+		<a href="<?php printlink("login-social"); ?>" class="btn btn-primary">Entrar</a>
+		<a href="<?php printlink("login-social"); ?>" class="btn btn-primary">Cadastrar</a>
 		<?php } ?>
 	  </form>
 	</div><!--/.navbar-collapse -->
