@@ -35,7 +35,7 @@ require_once "core.inc.php";
 				<div class="form-group">
 				  <label class="col-md-3 control-label" for="email">E-mail</label>
 				  <div class="col-md-9">
-					<input id="email" name="email" type="text" placeholder="Seu endereço de e-mali" class="form-control">
+					<input id="email" name="email" type="text" placeholder="Seu endereço de e-mail" class="form-control">
 				  </div>
 				</div>
 		

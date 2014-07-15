@@ -48,6 +48,52 @@ else if ($muf_registered === true)
 				</div> 
 			</div>
 		</div>
+		
+		<div class="col-md-8 col-md-offset-2">
+			<form class="form-horizontal" action="" method="post">
+			  <fieldset>
+			  
+				<!-- Name input -->
+				<div class="form-group">
+				  <label class="col-md-3 control-label" for="name">Nome</label>
+				  <div class="col-md-9">
+					<input id="name" name="name" type="text" placeholder="Seu nome" class="form-control" value="<?php print($fb_profile->getProperty('name')); ?>">
+				  </div>
+				</div>
+		
+				<!-- Email input -->
+				<div class="form-group">
+				  <label class="col-md-3 control-label" for="email">E-mail</label>
+				  <div class="col-md-9">
+					<input id="email" name="email" type="text" placeholder="Seu endereço de e-mail" class="form-control" value="<?php print($fb_profile->getProperty('email')); ?>">
+				  </div>
+				</div>
+		
+				<!-- Home town -->
+				<div class="form-group">
+				  <label class="col-md-3 control-label" for="email">Localização</label>
+				  <div class="col-md-9">
+					<input id="location" name="location" type="text" placeholder="Sua cidade residencial" class="form-control" value="<?php print($fb_profile->getProperty('location')); ?>">
+				  </div>
+				</div>
+		
+				<!-- Message body -->
+				<div class="form-group">
+				  <label class="col-md-3 control-label" for="message">Mensagem</label>
+				  <div class="col-md-9">
+					<textarea class="form-control" id="message" name="message" placeholder="Digite a sua mensagem aqui" rows="5"></textarea>
+				  </div>
+				</div>
+		
+				<!-- Form actions -->
+				<div class="form-group">
+				  <div class="col-md-12 text-right">
+					<button type="submit" class="btn btn-info btn-lg">Continuar</button>
+				  </div>
+				</div>
+			  </fieldset>
+			</form>
+		</div>
 	</div>
 	
 	<?php require "footer.inc.php"; ?>
