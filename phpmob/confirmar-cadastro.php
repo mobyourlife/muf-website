@@ -1,15 +1,16 @@
 <?php
 require_once "core.inc.php";
 
-/* Redireciona o usuário para a página de login. */
-if (!isset($fb_profile))
+if (isset($fb_profile))
+{
+	if (isset($fb_registered) && $fb_registered === true)
+	{
+		header("Location: " . $website_root . "/painel");
+	}
+}
+else
 {
 	header("Location: " . $website_root . "/login-social");
-}
-/* Redireciona o usuário para o painel do usuário. */
-else if ($muf_registered === true)
-{
-	header("Location: " . $website_root . "/painel");
 }
 
 ?>

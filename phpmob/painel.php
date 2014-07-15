@@ -1,11 +1,16 @@
 <?php
 require_once "core.inc.php";
-require_once "muf-user.inc.php";
 
-/* Redireciona o usuário para a página de cadastro. */
-if ($muf_registered === false)
+if (isset($fb_profile))
 {
-	header("Location: " . $website_root . "/confirmar-cadastro");
+	if (!isset($fb_registered) || $fb_registered === false)
+	{
+		header("Location: " . $website_root . "/confirmar-cadastro");
+	}
+}
+else
+{
+	header("Location: " . $website_root . "/login-social");
 }
 
 ?>

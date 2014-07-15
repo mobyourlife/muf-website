@@ -3,8 +3,16 @@ require_once "core.inc.php";
 
 if (isset($fb_profile))
 {
-	header("Location: " . $website_root . "/painel");
+	if (isset($fb_registered) && $fb_registered === true)
+	{
+		header("Location: " . $website_root . "/painel");
+	}
+	else
+	{
+		header("Location: " . $website_root . "/confirmar-cadastro");
+	}
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
