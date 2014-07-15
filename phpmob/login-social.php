@@ -42,12 +42,22 @@ if (isset($fb_profile))
 				</div> 
 			</div>
 		</div>
+		<div class="center">
+			<p>
+				Clique no botão abaixo para efetuar login.
+			</p>
+			<p>
+				<button class="btn btn-lg btn-primary" onclick="facebookPopup('<?php print($fb_loginurl); ?>'); ">Entrar com Facebook</button>
+			</p>
+		</div>
+		<!--
 		<div class="alert alert-info" role="alert">
 			Aguardando login com Facebook...
 		</div>
 		<div>
 			<button class="btn btn-lg btn-primary" onclick="facebookPopup('<?php print($fb_loginurl); ?>'); ">Entrar com Facebook</button>
 		</div>
+		-->
 	</div>
 	
 	<?php require "footer.inc.php"; ?>

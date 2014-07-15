@@ -18,7 +18,7 @@
 	</div>
 	
 	<div class="navbar-collapse collapse">
-	  <form method="post" action="<?php print(isset($fb_loginurl) ? $fb_loginurl : "."); ?>" class="navbar-form navbar-right" role="form">
+	  <div class="navbar-form navbar-right">
 		<?php if (isset($fb_profile)) { ?>
 		<div class="btn-group">
 		  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -31,10 +31,9 @@
 		  </ul>
 		</div>
 		<?php } else { ?>
-		<a href="<?php printlink("login-social"); ?>" class="btn btn-primary">Entrar</a>
-		<a href="<?php printlink("login-social"); ?>" class="btn btn-primary">Cadastrar</a>
+		<button class="btn btn-primary" onclick="facebookPopup('<?php print($fb_loginurl); ?>'); ">Entrar com Facebook</button>
 		<?php } ?>
-	  </form>
+	  </div>
 	</div><!--/.navbar-collapse -->
   </div>
 </div>
