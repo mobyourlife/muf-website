@@ -24,7 +24,7 @@ else
     <div class="jumbotron">
       <div class="container">
         <h1>Painel do usuário</h1>
-        <p>Administre a sua conta no Mob Your Face.</p>
+        <p>Administre a sua conta no Mob Your Life.</p>
       </div>
     </div>
 

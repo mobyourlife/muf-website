@@ -11,7 +11,7 @@ require_once "core.inc.php";
     <div class="jumbotron">
       <div class="container">
         <h1>Contato</h1>
-        <p>Entre em contato direto com a equipe do Mob Your Face para expressar as suas dúvidas ou sugestões!</p>
+        <p>Entre em contato direto com a equipe do Mob Your Life para expressar as suas dúvidas ou sugestões!</p>
       </div>
     </div>
 

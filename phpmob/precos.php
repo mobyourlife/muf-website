@@ -11,7 +11,7 @@ require_once "core.inc.php";
     <div class="jumbotron">
       <div class="container">
         <h1>Preços</h1>
-        <p>Além da facilidade proporcionada pelo Mob Your Face, nós também temos preços campeões!</p>
+        <p>Além da facilidade proporcionada pelo Mob Your Life, nós também temos preços campeões!</p>
       </div>
     </div>
 

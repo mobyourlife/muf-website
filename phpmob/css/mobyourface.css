@@ -25,10 +25,16 @@ body {
 	color: #fff;
 }
 
-.btn-primary {
+.btn-jumbo {
 	background-color: #fff;
 	border-color: #3071a9;
 	color: #000;
+}
+
+.btn-jumbo:hover{
+	background-color: #f58634;
+	border-color: #f1b88f;
+	color: #fff;
 }
 
 .lead {

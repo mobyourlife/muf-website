@@ -18,7 +18,7 @@
 			<li><a href="<?php printlink("contato"); ?>">Contato</a></li>
 		</ul>
 		
-		<p>Mob Your Face &copy; 2014 - Todos os direitos reservados</p>
+		<p>Mob Your Life &copy; 2014 - Todos os direitos reservados</p>
 	</div>
 </footer>
 

@@ -11,8 +11,8 @@ require_once "core.inc.php";
     <div class="jumbotron">
       <div class="container">
         <h1>Bem-vindo à facilidade!</h1>
-        <p>O Mob Your Face chegou para revolucionar a maneira que você atualiza o seu site. Crie o seu site em instantes e deixe que ele seja atualizado automaticamente através do seu Facebook!</p>
-        <p><a class="btn btn-primary btn-lg" role="button">Saiba mais &raquo;</a></p>
+        <p>O Mob Your Life chegou para revolucionar a maneira que você atualiza o seu site. Crie o seu site em instantes e deixe que ele seja atualizado automaticamente através do seu Facebook!</p>
+        <p><a class="btn btn-jumbo btn-lg" role="button">Saiba mais &raquo;</a></p>
       </div>
     </div>
 
@@ -26,7 +26,7 @@ require_once "core.inc.php";
 							<h3 class="title">O que?</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper.</p>
 							<div class="more">
-								<a href="#" title="Veja o que é o Mob Your Face">Saiba mais <i class="fa fa-angle-double-right"></i></a>
+								<a href="#" title="Veja o que é o Mob Your Life">Saiba mais <i class="fa fa-angle-double-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -42,7 +42,7 @@ require_once "core.inc.php";
 							<h3 class="title">Por que?</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper.</p>
 							<div class="more">
-								<a href="#" title="Entenda por que o Mob Your Face foi criado">Saiba mais <i class="fa fa-angle-double-right"></i></a>
+								<a href="#" title="Entenda por que o Mob Your Life foi criado">Saiba mais <i class="fa fa-angle-double-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -58,7 +58,7 @@ require_once "core.inc.php";
 							<h3 class="title">Como?</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper.</p>
 							<div class="more">
-								<a href="#" title="Saiba como o Mob Your Face funciona">Saiba mais <i class="fa fa-angle-double-right"></i></a>
+								<a href="#" title="Saiba como o Mob Your Life funciona">Saiba mais <i class="fa fa-angle-double-right"></i></a>
 							</div>
 						</div>
 					</div>
