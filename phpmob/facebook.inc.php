@@ -1,5 +1,4 @@
 <?php
-require_once "config.inc.php";
 require_once "Facebook/FacebookSession.php";
 require_once "Facebook/FacebookRedirectLoginHelper.php";
 require_once "Facebook/FacebookRequest.php";
