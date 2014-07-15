@@ -47,6 +47,11 @@ if (isset($_SESSION['FB_LOGIN']))
 /* Inicializa o login helper com a URL de redirecionamento. */
 if (!isset($fb_session))
 {
+	$redirect = sprintf("%s://%s/%s/facebook-login", $website_proto, $website_host, $website_root);
+	$redirect = str_replace("://", ":///", $redirect);
+	$redirect = str_replace("//", "/", $redirect);
+	$helper = new FacebookRedirectLoginHelper($redirect);
+
 	/* Verifica se é o retorno do Facebook. */
 	if (isset($_GET['code']))
 	{
@@ -79,10 +84,10 @@ if (isset($fb_session))
 /* Monta a URL para login. */
 else
 {
-	$redirect = sprintf("%s://%s/%s/facebook-login", $website_proto, $website_host, $website_root);
-	$redirect = str_replace("//", "/", $redirect);
-	$helper = new FacebookRedirectLoginHelper($redirect);
 	$fb_loginurl = $helper->getLoginUrl();
+	$fb_panelurl = sprintf("%s://%s/%s/painel", $website_proto, $website_host, $website_root);
+	$fb_panelurl = str_replace("://", ":///", $fb_panelurl);
+	$fb_panelurl = str_replace("//", "/", $fb_panelurl);
 }
 
 ?>
