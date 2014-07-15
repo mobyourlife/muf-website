@@ -56,6 +56,10 @@ div.notice span.label {
 	padding: 5px 20px;
 }
 
+.jump-5 {
+	margin-right: 5px;
+}
+
 /* Páginas de erro amigáveis */
 
 .error-template {

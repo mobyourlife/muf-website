@@ -31,7 +31,7 @@
 		  </ul>
 		</div>
 		<?php } else { ?>
-		<button class="btn btn-primary" onclick="facebookPopup('<?php print($fb_loginurl); ?>'); ">Entrar com Facebook</button>
+		<button class="btn btn-primary" onclick="facebookPopup('<?php print($fb_loginurl); ?>'); "><span class="fa fa-facebook jump-5"></span> Entrar com Facebook</button>
 		<?php } ?>
 	  </div>
 	</div><!--/.navbar-collapse -->
