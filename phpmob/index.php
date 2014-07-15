@@ -23,8 +23,8 @@ require_once "core.inc.php";
 					<div class="icon">
 						<div class="image"><i class="fa fa-thumbs-o-up"></i></div>
 						<div class="info">
-							<h3 class="title">O que?</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper.</p>
+							<h3 class="title">O que é?</h3>
+							<p>O Mob Your Life é um serviço que cria um site de forma automática para você ou para a sua empresa, sincronizando todo o conteúdo com o seu perfil ou página do Facebook.</p>
 							<div class="more">
 								<a href="#" title="Veja o que é o Mob Your Life">Saiba mais <i class="fa fa-angle-double-right"></i></a>
 							</div>
@@ -40,7 +40,7 @@ require_once "core.inc.php";
 						<div class="image"><i class="fa fa-flag"></i></div>
 						<div class="info">
 							<h3 class="title">Por que?</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper.</p>
+							<p>O Mob Your Life quer facilitar ainda mais a criação de seu site pessoal ou profissional! Crie-o em instantes e não se preocupe em atualizá-lo. Atualize o seu Facebook em vez disto.</p>
 							<div class="more">
 								<a href="#" title="Entenda por que o Mob Your Life foi criado">Saiba mais <i class="fa fa-angle-double-right"></i></a>
 							</div>
@@ -56,7 +56,7 @@ require_once "core.inc.php";
 						<div class="image"><i class="fa fa-desktop"></i></div>
 						<div class="info">
 							<h3 class="title">Como?</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper.</p>
+							<p>O Mob Your Life cria uma página totalmente integrada com o seu perfil do Facebook e sincroniza todas as informações desejadas, tais como postagens, fotos e vídeos.</p>
 							<div class="more">
 								<a href="#" title="Saiba como o Mob Your Life funciona">Saiba mais <i class="fa fa-angle-double-right"></i></a>
 							</div>
