@@ -1,6 +1,5 @@
 <?php
 require_once "core.inc.php";
-require_once "muf-user.inc.php";
 
 /* Redireciona o usuário para a página de login. */
 if (!isset($fb_profile))

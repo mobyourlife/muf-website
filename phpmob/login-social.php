@@ -1,6 +1,5 @@
 <?php
 require_once "core.inc.php";
-require_once "facebook.inc.php";
 
 if (isset($fb_profile))
 {

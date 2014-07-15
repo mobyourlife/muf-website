@@ -25,7 +25,11 @@
 			<span class="glyphicon glyphicon-user"></span> <?php print($fb_profile->getProperty('name')); ?> <span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu" role="menu">
-			<li><a href="<?php printlink("meu-perfil"); ?>">Meu perfil</a></li>
+			<?php if ($muf_registered === true) { ?>
+			<li><a href="<?php printlink("painel"); ?>">Painel do usuário</a></li>
+			<?php } else { ?>
+			<li><a href="<?php printlink("confirmar-cadastro"); ?>">Confirmar cadastro</a></li>
+			<?php } ?>
 			<li class="divider"></li>
 			<li><a href="<?php printlink("sair"); ?>">Sair</a></li>
 		  </ul>
