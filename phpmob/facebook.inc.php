@@ -1,4 +1,5 @@
 <?php
+require_once "config.inc.php";
 require_once "Facebook/FacebookSession.php";
 require_once "Facebook/FacebookRedirectLoginHelper.php";
 require_once "Facebook/FacebookRequest.php";
@@ -21,6 +22,12 @@ use Facebook\FacebookRequestException;
 use Facebook\FacebookAuthorizationException;
 use Facebook\GraphObject;
 
+function unsetfb()
+{
+	unset($fb_session);
+	unset($_SESSION['FB_LOGIN']);
+}
+
 /* Inicializa o aplicativo com seu ID e segredo. */
 FacebookSession::setDefaultApplication($app_id, $app_secret);
 
@@ -33,30 +40,31 @@ if (isset($_SESSION['FB_LOGIN']))
 	}
 	catch (Exception $ex)
 	{
-		unset($fb_session);
-		unset($_SESSION['FB_LOGIN']);
+		unsetfb();
 	}
 }
 
 /* Inicializa o login helper com a URL de redirecionamento. */
 if (!isset($fb_session))
 {
-	$redirect = sprintf("%s://%s/%s/facebook-login", $website_proto, $website_host, $website_root);
-	$redirect = str_replace("//", "//", $redirect);
-	$helper = new FacebookRedirectLoginHelper($redirect);
-	
-	try
+	/* Verifica se é o retorno do Facebook. */
+	if (isset($_GET['code']))
 	{
-		$fb_session = $helper->getSessionFromRedirect();
-		$_SESSION['FB_LOGIN'] = serialize($fb_session);
-	}
-	catch( FacebookRequestException $ex )
-	{
-		/* TODO: tratar erros do Facebook */
-	}
-	catch( Exception $ex )
-	{
-		/* TODO: tratar outros tipos de erro */
+		try
+		{
+			$fb_session = $helper->getSessionFromRedirect();
+			$_SESSION['FB_LOGIN'] = serialize($fb_session);
+		}
+		catch( FacebookRequestException $ex )
+		{
+			/* TODO: tratar erros do Facebook */
+			unsetfb();
+		}
+		catch( Exception $ex )
+		{
+			/* TODO: tratar outros tipos de erro */
+			unsetfb();
+		}
 	}
 }
 
@@ -68,8 +76,12 @@ if (isset($fb_session))
 	$response = $request->execute();
 	$fb_profile = $response->getGraphObject();
 }
+/* Monta a URL para login. */
 else
 {
+	$redirect = sprintf("%s://%s/%s/facebook-login", $website_proto, $website_host, $website_root);
+	$redirect = str_replace("//", "/", $redirect);
+	$helper = new FacebookRedirectLoginHelper($redirect);
 	$fb_loginurl = $helper->getLoginUrl();
 }
 

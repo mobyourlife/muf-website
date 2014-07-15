@@ -1,5 +1,11 @@
 <?php
 require_once "core.inc.php";
+require_once "facebook.inc.php";
+
+if (isset($fb_profile))
+{
+	header("Location: " . $website_root . "/painel");
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -40,7 +46,7 @@ require_once "core.inc.php";
 			Aguardando login com Facebook...
 		</div>
 		<div>
-			<button class="btn btn-lg btn-primary" onclick="facebookPopup('<?php print(isset($fb_loginurl) ? $fb_loginurl : ''); ?>'); ">Entrar com Facebook</button>
+			<button class="btn btn-lg btn-primary" onclick="facebookPopup('<?php print($fb_loginurl); ?>'); ">Entrar com Facebook</button>
 		</div>
 	</div>
 	
