@@ -1,3 +1,9 @@
+<?php
+if (isset($fb_session))
+{
+	$fb_profile = get_profile();
+}
+?>
 <div class="navbar navbar-muf navbar-fixed-top" role="navigation">
   <div class="container">
 	<div class="navbar-header">

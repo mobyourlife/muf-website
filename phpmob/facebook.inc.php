@@ -21,6 +21,7 @@ use Facebook\FacebookRequestException;
 use Facebook\FacebookAuthorizationException;
 use Facebook\GraphObject;
 
+/* Remove todos os dados de sessão para fazer logout do Facebook. */
 function unsetfb()
 {
 	unset($fb_session);
@@ -52,11 +53,12 @@ if (!isset($fb_session))
 	$helper = new FacebookRedirectLoginHelper($redirect);
 
 	/* Verifica se é o retorno do Facebook. */
-	if (isset($_GET['code']))
+	if (!isset($_GET['code']))
 	{
 		try
 		{
 			$fb_session = $helper->getSessionFromRedirect();
+			/*$fb_session = new FacebookSession("CAACEdEose0cBAPFlkfJxmTNoy6tRQU7l3KENGpEb4SfG7hHwRJjUsTWDCxuLRl6ZC9OzwvnFFlLPJYUfMuilWaYZBEXECxzZCqMBeVbap3q1WrqJvTKgvVUeamu8WUXfCXeMFhcUE2xupncYU6lSJGuHK1mwW7eosZCbsBSSwDNSN6ddbQwJkR3wa5VpsnAyGttZA3BcN6QpbjNRo6GWH");*/
 			$_SESSION['FB_LOGIN'] = serialize($fb_session);
 		}
 		catch( FacebookRequestException $ex )
@@ -72,21 +74,32 @@ if (!isset($fb_session))
 	}
 }
 
-/* Verifica se a sessão foi criada. */
-if (isset($fb_session))
-{
-	/* Solicita os dados do usuário logado. */
-	$request = new FacebookRequest($fb_session, 'GET', '/me');
-	$response = $request->execute();
-	$fb_profile = $response->getGraphObject();
-}
 /* Monta a URL para login. */
-else
+if (!isset($fb_session))
 {
 	$fb_loginurl = $helper->getLoginUrl();
 	$fb_panelurl = sprintf("%s://%s/%s/painel", $website_proto, $website_host, $website_root);
 	$fb_panelurl = str_replace("://", ":///", $fb_panelurl);
 	$fb_panelurl = str_replace("//", "/", $fb_panelurl);
+}
+
+/* Solicita os dados do usuário logado. */
+function get_profile()
+{
+	global $fb_session;
+	$request = new FacebookRequest($fb_session, 'GET', '/me');
+	$response = $request->execute();
+	$fb_profile = $response->getGraphObject();
+}
+
+/* Solicita as permissões do uusário em páginas do Facebook. */
+function get_accounts()
+{
+	global $fb_session;
+	$request = new FacebookRequest($fb_session, 'GET', '/me/accounts');
+	$response = $request->execute();
+	$fb_accounts = $response->getGraphObject();
+	return $fb_accounts;
 }
 
 ?>

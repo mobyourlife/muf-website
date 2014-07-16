@@ -13,6 +13,10 @@ else
 	header("Location: " . $website_root . "/login-social");
 }
 
+$fb_accounts = get_accounts();
+
+var_dump($fb_accounts);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
