@@ -13,9 +13,7 @@ else
 	header("Location: " . $website_root . "/login-social");
 }
 
-$fb_accounts = get_accounts();
-
-//var_dump($fb_accounts);
+$fb_accounts = get_accounts()->getProperty('data')->asArray();
 
 ?>
 <!DOCTYPE html>
@@ -84,6 +82,30 @@ $fb_accounts = get_accounts();
 							<a class="btn btn-primary btn-sm" data-toggle="account_type" data-title="profile">Pessoal</a>
 							<a class="btn btn-default btn-sm" data-toggle="account_type" data-title="fanpage">Página</a>
 						</div>
+					</div>
+				  </div>
+				</div>
+		
+				<!-- Nome da conta -->
+				<div class="form-group" style="displayy: none">
+				  <label class="col-md-3 control-label" for="email">Nome da conta</label>
+				  <div class="col-md-9">
+					<div class="btn-group">
+					  <input type="hidden" name="account_id" id="account_id" value="<?php print($fb_profile->getProperty('id')); ?>">
+					  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+						<?php print($fb_profile->getProperty('name')); ?> <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu" role="menu">
+						<li><a href="#" data-value="<?php print($fb_profile->getProperty('id')); ?>"><?php print($fb_profile->getProperty('name')); ?></a></li>
+						<?php
+						foreach ($fb_accounts as $page)
+						{
+						?>
+						<li><a href="#" data-value="<?php print($page->id); ?>"><?php print($page->name); ?></a></li>
+						<?php
+						}
+						?>
+					  </ul>
 					</div>
 				  </div>
 				</div>
