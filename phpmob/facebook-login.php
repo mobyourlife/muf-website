@@ -1,6 +1,5 @@
 <?php
 require "core.inc.php";
-
 ?>
 <html>
 	<head></head>

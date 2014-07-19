@@ -25,18 +25,21 @@ use Facebook\GraphObject;
 function unsetfb()
 {
 	unset($fb_session);
-	unset($_SESSION['FB_LOGIN']);
+	unset($_SESSION['FB_SESSION']);
+	unset($_SESSION['FB_PROFILE']);
+	unset($_SESSION['FB_JOURNAL']);
+	session_destroy();
 }
 
 /* Inicializa o aplicativo com seu ID e segredo. */
 FacebookSession::setDefaultApplication($app_id, $app_secret);
 
 /* Verifica se o login já está armazenado. */
-if (isset($_SESSION['FB_LOGIN']))
+if (isset($_SESSION['FB_SESSION']))
 {
 	try
 	{
-		$fb_session = unserialize($_SESSION['FB_LOGIN']);
+		$fb_session = unserialize($_SESSION['FB_SESSION']);
 	}
 	catch (Exception $ex)
 	{
@@ -53,22 +56,24 @@ if (!isset($fb_session))
 	$helper = new FacebookRedirectLoginHelper($redirect);
 
 	/* Verifica se é o retorno do Facebook. */
-	if (!isset($_GET['code']))
+	if (isset($_GET['code']))
 	{
 		try
 		{
 			$fb_session = $helper->getSessionFromRedirect();
 			/*$fb_session = new FacebookSession("CAACEdEose0cBAPFlkfJxmTNoy6tRQU7l3KENGpEb4SfG7hHwRJjUsTWDCxuLRl6ZC9OzwvnFFlLPJYUfMuilWaYZBEXECxzZCqMBeVbap3q1WrqJvTKgvVUeamu8WUXfCXeMFhcUE2xupncYU6lSJGuHK1mwW7eosZCbsBSSwDNSN6ddbQwJkR3wa5VpsnAyGttZA3BcN6QpbjNRo6GWH");*/
-			$_SESSION['FB_LOGIN'] = serialize($fb_session);
+			$_SESSION['FB_SESSION'] = serialize($fb_session);
 		}
 		catch( FacebookRequestException $ex )
 		{
 			/* TODO: tratar erros do Facebook */
+			die($ex);
 			unsetfb();
 		}
 		catch( Exception $ex )
 		{
 			/* TODO: tratar outros tipos de erro */
+			die($ex);
 			unsetfb();
 		}
 	}
@@ -87,9 +92,16 @@ if (!isset($fb_session))
 function get_profile()
 {
 	global $fb_session;
-	$request = new FacebookRequest($fb_session, 'GET', '/me');
-	$response = $request->execute();
-	$fb_profile = $response->getGraphObject();
+	
+	if (isset($fb_session))
+	{
+		$request = new FacebookRequest($fb_session, 'GET', '/me');
+		$response = $request->execute();
+		$fb_profile = $response->getGraphObject();
+		return $fb_profile;
+	}
+	
+	return null;
 }
 
 /* Solicita as permissões do uusário em páginas do Facebook. */

@@ -18,4 +18,9 @@ function activelink($resource)
 	}
 }
 
+function mobdate()
+{
+	return date("Y-m-d H:i:s");
+}
+
 ?>

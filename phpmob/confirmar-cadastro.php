@@ -15,7 +15,7 @@ else
 
 $fb_accounts = get_accounts();
 
-var_dump($fb_accounts);
+//var_dump($fb_accounts);
 
 ?>
 <!DOCTYPE html>
