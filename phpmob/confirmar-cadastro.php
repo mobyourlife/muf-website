@@ -58,35 +58,33 @@ $fb_accounts = get_accounts();
 			<form class="form-horizontal" action="" method="post">
 			  <fieldset>
 			  
-				<!-- Name input -->
+				<!-- Confirmação de nome -->
 				<div class="form-group">
 				  <label class="col-md-3 control-label" for="name">Nome</label>
 				  <div class="col-md-9">
-					<input id="name" name="name" type="text" placeholder="Seu nome" class="form-control" value="<?php print($fb_profile->getProperty('name')); ?>">
+					<input id="name" name="name" type="text" placeholder="Seu nome" class="form-control" value="<?php print($fb_profile->getProperty('name')); ?>" readonly="readonly">
 				  </div>
 				</div>
 		
-				<!-- Email input -->
+				<!-- Confirmação de email -->
 				<div class="form-group">
 				  <label class="col-md-3 control-label" for="email">E-mail</label>
 				  <div class="col-md-9">
-					<input id="email" name="email" type="text" placeholder="Seu endereço de e-mail" class="form-control" value="<?php print($fb_profile->getProperty('email')); ?>">
+					<input id="email" name="email" type="text" placeholder="Seu endereço de e-mail" class="form-control" value="<?php print($fb_profile->getProperty('email')); ?>" readonly="readonly">
 				  </div>
 				</div>
 		
-				<!-- Home town -->
+				<!-- Tipo de conta -->
 				<div class="form-group">
-				  <label class="col-md-3 control-label" for="email">Localização</label>
+				  <label class="col-md-3 control-label" for="email">Tipo de conta</label>
 				  <div class="col-md-9">
-					<input id="location" name="location" type="text" placeholder="Sua cidade residencial" class="form-control" value="<?php print($fb_profile->getProperty('location')); ?>">
-				  </div>
-				</div>
-		
-				<!-- Message body -->
-				<div class="form-group">
-				  <label class="col-md-3 control-label" for="message">Mensagem</label>
-				  <div class="col-md-9">
-					<textarea class="form-control" id="message" name="message" placeholder="Digite a sua mensagem aqui" rows="5"></textarea>
+					<div class="input-group">
+						<div id="radioBtn" class="btn-group">
+							<input type="hidden" name="account_type" id="account_type">
+							<a class="btn btn-primary btn-sm" data-toggle="account_type" data-title="profile">Pessoal</a>
+							<a class="btn btn-default btn-sm" data-toggle="account_type" data-title="fanpage">Página</a>
+						</div>
+					</div>
 				  </div>
 				</div>
 		
