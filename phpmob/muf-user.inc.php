@@ -38,8 +38,8 @@ if (isset($fb_profile))
 		/* Se foi a primeira conexão com o Facebook, o cadastra no banco de dados. */
 		if (mysqli_num_rows($res) == 0)
 		{
-			$sql = sprintf("INSERT INTO mob_fb_accounts (fb_uid, first_login, last_login, login_count) VALUES (%s, '%s', '%s', %d);"
-						, $fb_profile->getProperty('id'), mobdate(), mobdate(), 1);
+			$sql = sprintf("INSERT INTO mob_fb_accounts (fb_uid, first_login, last_login, login_count, is_fanpage) VALUES (%s, '%s', '%s', %d, %d);"
+						, $fb_profile->getProperty('id'), mobdate(), mobdate(), 1, 0);
 			mysqli_query($db, $sql);
 		}
 		/* Se estiver conectado, incrementa o contador de logins. */

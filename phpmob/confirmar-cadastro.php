@@ -53,7 +53,7 @@ $fb_accounts = get_accounts()->getProperty('data')->asArray();
 		</div>
 		
 		<div class="col-md-8 col-md-offset-2">
-			<form class="form-horizontal" action="" method="post">
+			<form class="form-horizontal" action="<?php printlink("validar-cadastro"); ?>" method="post">
 			  <fieldset>
 			  
 				<!-- Confirmação de nome -->
