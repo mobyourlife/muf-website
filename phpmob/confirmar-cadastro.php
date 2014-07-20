@@ -1,7 +1,7 @@
 <?php
 require_once "core.inc.php";
 require_once "csrf.inc.php";
- 
+
 /* Verificação de autorização. */
 if (isset($fb_profile))
 {
