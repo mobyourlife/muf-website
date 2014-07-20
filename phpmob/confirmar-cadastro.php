@@ -1,6 +1,8 @@
 <?php
 require_once "core.inc.php";
-
+require_once "csrf.inc.php";
+ 
+/* Verificação de autorização. */
 if (isset($fb_profile))
 {
 	if (isset($fb_registered) && $fb_registered === true)
@@ -14,6 +16,14 @@ else
 }
 
 $fb_accounts = get_accounts()->getProperty('data')->asArray();
+
+/* Proteção XSRF. */
+$csrf = new csrf();
+
+$token_id = $csrf->get_token_id();
+$token_value = $csrf->get_token($token_id);
+ 
+$form_names = $csrf->form_names(array('full_name', 'account_type', 'account_id'), false);
 
 ?>
 <!DOCTYPE html>
@@ -54,23 +64,24 @@ $fb_accounts = get_accounts()->getProperty('data')->asArray();
 		
 		<div class="col-md-8 col-md-offset-2">
 			<form class="form-horizontal" action="<?php printlink("validar-cadastro"); ?>" method="post">
+			  <input type="hidden" name="<?php print($token_id); ?>" value="<?php print($token_value); ?>" />
 			  <fieldset>
 			  
 				<!-- Confirmação de nome -->
 				<div class="form-group">
 				  <label class="col-md-3 control-label" for="name">Nome</label>
 				  <div class="col-md-9">
-					<input id="name" name="name" type="text" placeholder="Seu nome" class="form-control" value="<?php print($fb_profile->getProperty('name')); ?>" readonly="readonly">
+					<input id="full_name" name="<?php print($form_names['full_name']); ?>" type="text" placeholder="Seu nome" class="form-control" value="<?php print($fb_profile->getProperty('name')); ?>" readonly="readonly">
 				  </div>
 				</div>
 		
 				<!-- Tipo de conta -->
 				<div class="form-group">
-				  <label class="col-md-3 control-label" for="email">Tipo de conta</label>
+				  <label class="col-md-3 control-label" for="<?php print($form_names['account_type']); ?>">Tipo de conta</label>
 				  <div class="col-md-9">
 					<div class="input-group">
 						<div id="radioBtn" class="btn-group">
-							<input type="hidden" name="account_type" id="account_type">
+							<input type="hidden" name="<?php print($form_names['account_type']); ?>" id="account_type">
 							<a class="btn btn-primary" data-toggle="account_type" data-value="profile">Pessoal</a>
 							<a class="btn btn-default" data-toggle="account_type" data-value="fanpage">Página</a>
 						</div>
@@ -84,7 +95,7 @@ $fb_accounts = get_accounts()->getProperty('data')->asArray();
 				  <div class="col-md-9">
 					<div class="input-group">
 						<div id="radioBtn" class="btn-group">
-							<input type="hidden" name="account_id" id="account_id">
+							<input type="hidden" name="<?php print($form_names['account_id']); ?>" id="account_id">
 							<?php
 							$first = true;
 							if (count($fb_accounts) > 0)
