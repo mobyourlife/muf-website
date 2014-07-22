@@ -16,4 +16,8 @@ $mysql_database = "{mysql_database}";
 $mysql_username = "{mysql_username}";
 $mysql_password = "{mysql_password}";
 
+/* Dados de pagamento. */
+$pgs_producao = false;
+$pgs_token = "{token_pagseguro}";
+
 ?>
