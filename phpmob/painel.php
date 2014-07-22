@@ -44,6 +44,10 @@ switch ($account_status_id)
 		break;
 }
 
+$subdomain = $row['subdomain'];
+$url = "http://" . $subdomain . ".mobyourlife.com.br";
+$url_label = $subdomain . ".mobyourlife.com.br";
+
 /* Fecha a conexão com o banco de dados. */
 mysqli_close($db);
 
@@ -88,6 +92,10 @@ mysqli_close($db);
 											<td>Estado da conta</td>
 											<td><?php print($account_status); ?></td>
 										</tr>
+										<tr>
+											<td>Seu endereço</td>
+											<td><a href="<?php print($url); ?>"><?php print($url_label); ?></a></td>
+										</tr>
 									</tbody>
 								</table>
 
@@ -100,7 +108,7 @@ mysqli_close($db);
 									<?php
 									}
 									?>
-									<a href="#" class="btn btn-lg btn-info"><span class="fa fa-globe jump-5"></span> Acessar meu site</a>
+									<a href="<?php print($url); ?>" class="btn btn-lg btn-info"><span class="fa fa-globe jump-5"></span> Acessar meu site</a>
 								</div>
 							</div>
 						</div>
