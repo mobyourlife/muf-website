@@ -51,8 +51,8 @@ if(isset($_POST[$form_names['full_name']], $_POST[$form_names['account_type']], 
 				mysqli_select_db($db, $mysql_database);
 				
 				/* Executa o comando no banco de dados. */
-				$sql = sprintf("INSERT INTO mob_fb_page_admins (fb_uid, fb_pgid, is_pending_confirmation) VALUES (%s, %s, %d) ON DUPLICATE KEY UPDATE fb_pgid = fb_pgid;"
-								, $fb_profile->getProperty('id'), $account_id, 1);
+				$sql = sprintf("INSERT INTO mob_fb_page_admins (fb_uid, fb_pgid, account_status) VALUES (%s, %s, %d) ON DUPLICATE KEY UPDATE fb_pgid = fb_pgid;"
+								, $fb_profile->getProperty('id'), $account_id, 0);
 				mysqli_query($db, $sql);
 	
 				/* Consulta se esta conta do Facebook foi no serviço com sucesso. */
