@@ -145,11 +145,15 @@ $sugestao = str_replace(" ", "", $sugestao);
 				  </div>
 				</div>
 				
+				<?php
+				/*
 				<div class="form-group">
 					<div class="col-md-9 col-md-offset-3">
 						Não se preocupe, você poderá vincular um domínio próprio após finalizar o cadastro.
 					</div>
 				</div>
+				*/
+				?>
 		
 				<!-- Form actions -->
 				<div class="form-group">
