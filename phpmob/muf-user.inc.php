@@ -20,6 +20,9 @@ if (isset($_SESSION['FB_SESSION']))
 	}
 }
 
+$fb_registered = (isset($_SESSION['MUF_REGISTERED']) ? $_SESSION['MUF_REGISTERED'] : false);
+$fb_pending_payment = true;
+
 /* Verifica se o usuário está autenticado. */
 if (isset($fb_profile))
 {
@@ -33,7 +36,6 @@ if (isset($fb_profile))
 		/* Verifica se o usuário já está conectado. */
 		$sql = sprintf("SELECT 1 FROM mob_fb_accounts WHERE fb_uid = %s;", $fb_profile->getProperty('id'));
 		$res = mysqli_query($db, $sql);
-		//$muf_registered = (mysqli_num_rows($res) == 1) ? true : false;
 		
 		/* Se foi a primeira conexão com o Facebook, o cadastra no banco de dados. */
 		if (mysqli_num_rows($res) == 0)
@@ -60,7 +62,9 @@ if (isset($fb_profile))
 	mysqli_query($db, $sql);
 	
 	/* Consulta se esta conta do Facebook já está cadastrada no serviço. */
-	$muf_registered = false;
+	$sql = sprintf("SELECT 1 FROM mob_fb_page_admins WHERE fb_pgid = %s;", $fb_profile->getProperty('id'));
+	$res = mysqli_query($db, $sql);
+	$_SESSION['MUF_REGISTERED'] = (mysqli_num_rows($res) == 1) ? true : false;
 
 	/* Fecha a conexão com o banco de dados. */
 	mysqli_close($db);

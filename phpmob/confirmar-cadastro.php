@@ -7,7 +7,14 @@ if (isset($fb_profile))
 {
 	if (isset($fb_registered) && $fb_registered === true)
 	{
-		header("Location: " . $website_root . "/painel");
+		if (isset($fb_pending_payment) && $fb_pending_payment === false)
+		{
+			header("Location: " . $website_root . "/painel");
+		}
+		else
+		{
+			header("Location: " . $website_root . "/efetuar-pagamento");
+		}
 	}
 }
 else
@@ -81,7 +88,7 @@ $form_names = $csrf->form_names(array('full_name', 'account_type', 'account_id')
 				  <div class="col-md-9">
 					<div class="input-group">
 						<div id="radioBtn" class="btn-group">
-							<input type="hidden" name="<?php print($form_names['account_type']); ?>" id="account_type">
+							<input type="hidden" name="<?php print($form_names['account_type']); ?>" id="account_type" value="profile">
 							<a class="btn btn-primary" data-toggle="account_type" data-value="profile">Pessoal</a>
 							<a class="btn btn-default" data-toggle="account_type" data-value="fanpage">Página</a>
 						</div>

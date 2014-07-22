@@ -31,7 +31,7 @@ if (isset($fb_session))
 			<span class="glyphicon glyphicon-user"></span> <?php print($fb_profile->getProperty('name')); ?> <span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu" role="menu">
-			<?php if ($muf_registered === true) { ?>
+			<?php if ($fb_registered === true) { ?>
 			<li><a href="<?php printlink("painel"); ?>">Painel do usuário</a></li>
 			<?php } else { ?>
 			<li><a href="<?php printlink("confirmar-cadastro"); ?>">Confirmar cadastro</a></li>

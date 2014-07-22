@@ -15,12 +15,12 @@ class csrf
 
 	public function get_token($token_id)
 	{
-		if (!isset($_SESSION[$token_id]))
+		if (!isset($_SESSION[sprintf("%s", $token_id)]))
 		{
-			$_SESSION[$token_id] = hash('sha256', $this->random(500));
+			$_SESSION[sprintf("%s", $token_id)] = hash('sha256', $this->random(500));
 		}
 		
-		return $_SESSION[$token_id];
+		return $_SESSION[sprintf("%s", $token_id)];
 	}
 	
 	public function check_valid($method)
@@ -29,10 +29,9 @@ class csrf
 		
 		if ($args == 'post' || $args == 'get')
 		{
-			$post = $_POST;
-			$get = $_GET;
+			$query = ($args == 'post' ? $_POST : $_GET);
 			
-			if (isset(${$args}[$this->get_token_id()]) && ${$args}[$this->get_token_id()] == $this->get_token_id())
+			if (isset($query[sprintf("%s", $this->get_token_id())]) && $query[sprintf("%s", $this->get_token_id())] == $this->get_token($this->get_token_id()))
 			{
 				return true;
 			}
@@ -50,9 +49,9 @@ class csrf
 			{
 				unset($_SESSION[$n]);
 			}
-			$s = isset($_SESSION[$n]) ? $_SESSION[$n] : $this->random(10); /* TODO: proteção anti-random igual */
+			$s = isset($_SESSION[$n]) ? $_SESSION[$n] : "i" . $this->random(10); /* TODO: proteção anti-random igual */
 			$_SESSION[$n] = $s;
-			$values[$n] = $s;       
+			$values[$n] = $s;
 		}
 		return $values;
 	}
