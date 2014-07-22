@@ -30,7 +30,12 @@ $csrf = new csrf();
 $token_id = $csrf->get_token_id();
 $token_value = $csrf->get_token($token_id);
  
-$form_names = $csrf->form_names(array('full_name', 'account_type', 'account_id'), false);
+$form_names = $csrf->form_names(array('full_name', 'account_type', 'account_id', 'subdomain'), false);
+
+/* Sugestão de subdomínio. */
+$sugestao = $fb_profile->getProperty('name');
+$sugestao = strtolower($sugestao);
+$sugestao = str_replace(" ", "", $sugestao);
 
 ?>
 <!DOCTYPE html>
@@ -124,6 +129,26 @@ $form_names = $csrf->form_names(array('full_name', 'account_type', 'account_id')
 						</div>
 					</div>
 				  </div>
+				</div>
+			  
+				<!-- Subdomínio desejado -->
+				<div class="form-group">
+				  <label class="col-md-3 control-label" for="name">Subdomínio desejado</label>
+				  <div class="col-md-5">
+					<div class="input-group">
+						<input id="subdomain" name="<?php print($form_names['subdomain']); ?>" type="text" placeholder="Subdomínio desejado" class="form-control" value="<?php print($sugestao); ?>">
+						<span class="input-group-addon">.mobyourlife.com.br</span>
+					</div>
+				  </div>
+				  <div class="col-md-4">
+					<span class="btn text-success"><strong>Disponível!</strong></span>
+				  </div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-md-9 col-md-offset-3">
+						Não se preocupe, você poderá vincular um domínio próprio após finalizar o cadastro.
+					</div>
 				</div>
 		
 				<!-- Form actions -->

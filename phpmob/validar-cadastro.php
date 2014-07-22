@@ -23,7 +23,7 @@ $csrf = new csrf();
 $token_id = $csrf->get_token_id();
 $token_value = $csrf->get_token($token_id);
  
-$form_names = $csrf->form_names(array('full_name', 'account_type', 'account_id'), false);
+$form_names = $csrf->form_names(array('full_name', 'account_type', 'account_id', 'subdomain'), false);
 
 /* Verifica o retorno do formulário. */
 if(isset($_POST[$form_names['full_name']], $_POST[$form_names['account_type']], $_POST[$form_names['account_id']]))
@@ -35,6 +35,7 @@ if(isset($_POST[$form_names['full_name']], $_POST[$form_names['account_type']], 
 		$full_name = $_POST[$form_names['full_name']];
 		$account_type = $_POST[$form_names['account_type']];
 		$account_id = $_POST[$form_names['account_id']];
+		$subdomain = $_POST[$form_names['subdomain']];
 
 		/* Cadastro o usuário como um site pendente. */
 		if (strlen($full_name) != 0)
@@ -51,8 +52,8 @@ if(isset($_POST[$form_names['full_name']], $_POST[$form_names['account_type']], 
 				mysqli_select_db($db, $mysql_database);
 				
 				/* Executa o comando no banco de dados. */
-				$sql = sprintf("INSERT INTO mob_fb_page_admins (fb_uid, fb_pgid, account_status) VALUES (%s, %s, %d) ON DUPLICATE KEY UPDATE fb_pgid = fb_pgid;"
-								, $fb_profile->getProperty('id'), $account_id, 0);
+				$sql = sprintf("INSERT INTO mob_fb_page_admins (fb_uid, fb_pgid, register_date, subdomain, account_status) VALUES (%s, %s, '%s', '%s', %d) ON DUPLICATE KEY UPDATE fb_pgid = fb_pgid;"
+								, $fb_profile->getProperty('id'), $account_id, mobdate(), $subdomain, 0);
 				mysqli_query($db, $sql);
 	
 				/* Consulta se esta conta do Facebook foi no serviço com sucesso. */
@@ -70,7 +71,7 @@ if(isset($_POST[$form_names['full_name']], $_POST[$form_names['account_type']], 
 	}
 	
 	/* Gera novos nomes de formulário. */
-	$form_names = $csrf->form_names(array('full_name', 'account_type', 'account_id'), true);
+	$form_names = $csrf->form_names(array('full_name', 'account_type', 'account_id', 'subdomain'), true);
 	
 	/* Retorna para a página de cadastro. */
 	header("Location: " . $website_root . "/confirmar-cadastro");
