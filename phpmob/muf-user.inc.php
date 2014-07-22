@@ -62,7 +62,7 @@ if (isset($fb_profile))
 	mysqli_query($db, $sql);
 	
 	/* Consulta se esta conta do Facebook já está cadastrada no serviço. */
-	$sql = sprintf("SELECT 1 FROM mob_fb_page_admins WHERE fb_pgid = %s;", $fb_profile->getProperty('id'));
+	$sql = sprintf("SELECT 1 FROM mob_fb_page_admins WHERE fb_uid = %s;", $fb_profile->getProperty('id'));
 	$res = mysqli_query($db, $sql);
 	$_SESSION['MUF_REGISTERED'] = (mysqli_num_rows($res) == 1) ? true : false;
 

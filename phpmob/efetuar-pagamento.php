@@ -60,10 +60,10 @@ if (isset($fb_profile))
 				<!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
 				<form action="<?php print(($pgs_producao === true) ? "https://pagseguro.uol.com.br/checkout/v2/payment.html" : "https://sandbox.pagseguro.uol.com.br/checkout/v2/payment.html"); ?>" method="post" onsubmit="PagSeguroLightbox(this); return false;">
 					<!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
-					<input type="hidden" name="code" value="<?php print($pgs_token); ?>" />
+					<input type="hidden" name="code" value="<?php print($pgs_checkout_code); ?>" />
 					<input type="image" src="<?php printlink("/img/pagseguro.gif"); ?>" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
 				</form>
-				<script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
+				<script type="text/javascript" src="<?php print(($pgs_producao === true) ? "https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js" : "https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"); ?>"></script>
 				<!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
 			</p>
 		</div>

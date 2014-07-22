@@ -18,6 +18,6 @@ $mysql_password = "{mysql_password}";
 
 /* Dados de pagamento. */
 $pgs_producao = false;
-$pgs_token = "{token_pagseguro}";
+$pgs_checkout_code = "{codigo_checkout_pagseguro}";
 
 ?>
