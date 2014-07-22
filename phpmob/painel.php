@@ -65,52 +65,71 @@ mysqli_close($db);
         <p>Administre a sua conta no Mob Your Life.</p>
       </div>
     </div>
-    
+	
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-				<div class="panel panel-info">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Painel do usuário</h3>
+						<span class="pull-right">
+						<!-- Tabs -->
+							<ul class="nav panel-tabs">
+								<li class="active"><a href="#perfil" data-toggle="tab">Perfil</a></li>
+								<li><a href="#faturas" data-toggle="tab">Faturas</a></li>
+								<li><a href="#cupons" data-toggle="tab">Cupons</a></li>
+							</ul>
+						</span>
+					</div>
 					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-12 col-lg-12"> 
-								<table class="table table-user-information">
-									<tbody>
-										<tr>
-											<td>Seu nome:</td>
-											<td><?php print($fb_profile->getProperty('name')); ?></td>
-										</tr>
-									<tbody>
-										<tr>
-											<td>Tipo de conta:</td>
-											<td><?php print($account_type); ?></td>
-										</tr>
-										<tr>
-											<td>Data de cadastro:</td>
-											<td><?php print($register_date); ?></td>
-										</tr>
-										<tr>
-											<td>Estado da conta</td>
-											<td><?php print($account_status); ?></td>
-										</tr>
-										<tr>
-											<td>Seu endereço</td>
-											<td><a href="<?php print($url); ?>"><?php print($url_label); ?></a></td>
-										</tr>
-									</tbody>
-								</table>
+						<div class="tab-content">
+						<div class="tab-pane active" id="perfil">
+							<div class="row">
+								<div class="col-md-12 col-lg-12"> 
+									<table class="table table-user-information">
+										<tbody>
+											<tr>
+												<td>Seu nome:</td>
+												<td><?php print($fb_profile->getProperty('name')); ?></td>
+											</tr>
+										<tbody>
+											<tr>
+												<td>Tipo de conta:</td>
+												<td><?php print($account_type); ?></td>
+											</tr>
+											<tr>
+												<td>Data de cadastro:</td>
+												<td><?php print($register_date); ?></td>
+											</tr>
+											<tr>
+												<td>Estado da conta</td>
+												<td><?php print($account_status); ?></td>
+											</tr>
+											<tr>
+												<td>Seu endereço</td>
+												<td><a href="<?php print($url); ?>"><?php print($url_label); ?></a></td>
+											</tr>
+										</tbody>
+									</table>
 
-								<div class="center">
-									<?php
-									if ($account_status_id == 1)
-									{
-									?>
-									<a href="<?php printlink("efetuar-pagamento"); ?>" class="btn btn-lg btn-success"><span class="fa fa-dollar jump-5"></span> Efetuar pagamento</a>
-									<?php
-									}
-									?>
-									<a href="<?php print($url); ?>" class="btn btn-lg btn-info"><span class="fa fa-globe jump-5"></span> Acessar meu site</a>
+									<div class="center">
+										<?php
+										if ($account_status_id == 1)
+										{
+										?>
+										<a href="<?php printlink("efetuar-pagamento"); ?>" class="btn btn-lg btn-success"><span class="fa fa-dollar jump-5"></span> Efetuar pagamento</a>
+										<?php
+										}
+										?>
+										<a href="<?php print($url); ?>" class="btn btn-lg btn-info"><span class="fa fa-globe jump-5"></span> Acessar meu site</a>
+									</div>
 								</div>
 							</div>
+						</div>
+						<div class="tab-pane" id="faturas">
+							Nenhuma fatura em sua conta.
+						</div>
+						<div class="tab-pane" id="cupons">
 						</div>
 					</div>
 				</div>
