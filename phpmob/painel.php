@@ -76,8 +76,8 @@ mysqli_close($db);
 						<!-- Tabs -->
 							<ul class="nav panel-tabs">
 								<li class="active"><a href="#perfil" data-toggle="tab">Perfil</a></li>
-								<li><a href="#faturas" data-toggle="tab">Faturas</a></li>
 								<li><a href="#cupons" data-toggle="tab">Cupons</a></li>
+								<li><a href="#faturas" data-toggle="tab">Faturas</a></li>
 							</ul>
 						</span>
 					</div>
@@ -100,6 +100,10 @@ mysqli_close($db);
 											<tr>
 												<td>Data de cadastro:</td>
 												<td><?php print($register_date); ?></td>
+											</tr>
+											<tr>
+												<td>Data de expiração:</td>
+												<td>-</td>
 											</tr>
 											<tr>
 												<td>Estado da conta</td>
@@ -130,6 +134,28 @@ mysqli_close($db);
 							Nenhuma fatura em sua conta.
 						</div>
 						<div class="tab-pane" id="cupons">
+							<div class="row">
+								<div class="span5">
+									<table class="table table-striped table-condensed">
+										  <thead>
+										  <tr>
+											  <th>Cupom</th>
+											  <th>Data de ativação</th>
+											  <th>Expiração</th>
+											  <th>Estado</th>
+										  </tr>
+									  </thead>   
+									  <tbody>
+										<tr>
+											<td>Promoção 7 dias GRÁTIS!</td>
+											<td>22/07/2014</td>
+											<td>29/07/2014</td>
+											<td><span class="label label-success">Ativo</span></td>
+										</tr>
+									  </tbody>
+									</table>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

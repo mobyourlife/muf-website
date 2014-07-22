@@ -22,7 +22,7 @@ else
 	header("Location: " . $website_root . "/login-social");
 }
 
-$fb_accounts = get_accounts()->getProperty('data')->asArray();
+$fb_accounts = get_accounts()->getProperty('data');
 
 /* Proteção XSRF. */
 $csrf = new csrf();
@@ -35,6 +35,7 @@ $form_names = $csrf->form_names(array('full_name', 'account_type', 'account_id',
 /* Sugestão de subdomínio. */
 $sugestao = $fb_profile->getProperty('name');
 $sugestao = strtolower($sugestao);
+$sugestao = remove_accents($sugestao);
 $sugestao = str_replace(" ", "", $sugestao);
 
 ?>
@@ -110,20 +111,30 @@ $sugestao = str_replace(" ", "", $sugestao);
 							<input type="hidden" name="<?php print($form_names['account_id']); ?>" id="account_id">
 							<?php
 							$first = true;
-							if (count($fb_accounts) > 0)
+							
+							if ($fb_accounts != null)
 							{
-								foreach ($fb_accounts as $page)
+								if (count($fb_accounts) > 0)
+								{
+									foreach ($fb_accounts as $page)
+									{
+									?>
+									<a class="btn btn-<?php print(($first == true) ? "primary" : "default"); $first = false; ?>" data-toggle="account_id" data-value="<?php print($page->id); ?>"><?php print($page->name); ?></a><br/>
+									<?php
+									}
+								}
+								else
 								{
 								?>
-								<a class="btn btn-<?php print(($first == true) ? "primary" : "default"); $first = false; ?>" data-toggle="account_id" data-value="<?php print($page->id); ?>"><?php print($page->name); ?></a><br/>
+									Você não é administrador de nenhuma página!
 								<?php
 								}
 							}
 							else
 							{
-							?>
-								Você não é administrador de nenhuma página!
-							<?php
+								?>
+									Não foi possível consultar as suas páginas!
+								<?php
 							}
 							?>
 						</div>
