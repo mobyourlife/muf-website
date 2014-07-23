@@ -25,7 +25,7 @@ $res = mysqli_query($db, $sql);
 /* Verifica a consulta. */
 $row = mysqli_fetch_assoc($res);
 $account_type = ($row['fb_uid'] == $row['fb_pgid']) ? "Pessoal" : "Página";
-$register_date = date("d/m/Y H:i:s", strtotime($row['register_date']));
+$register_date = fromsqldate($row['register_date']);
 $account_status_id = $row['account_status'];
 $account_status = "Conta bloqueada";
 
@@ -47,6 +47,52 @@ switch ($account_status_id)
 $subdomain = $row['subdomain'];
 $url = "http://" . $subdomain . ".mobyourlife.com.br";
 $url_label = $subdomain . ".mobyourlife.com.br";
+
+/* Resgata o próximo cupom de desconto. */
+$sql = sprintf("SELECT id, label, freebie_days, redeem_date, expire_date FROM mob_coupons_freebies WHERE best_before > NOW() AND redeem_date IS NULL ORDER BY best_before ASC LIMIT 1;"
+				, $fb_profile->getProperty('id'));
+$res = mysqli_query($db, $sql);
+
+if (mysqli_num_rows($res) != 0)
+{
+	$row = mysqli_fetch_assoc($res);
+	
+	if ($row)
+	{
+		$sql = sprintf("UPDATE mob_coupons_freebies SET redeem_date = NOW(), expire_date = NOW() + INTERVAL %d DAY WHERE id = %d;"
+						, $row['freebie_days'], $row['id']);
+		mysqli_query($db, $sql);
+	}
+}
+
+/* Consulta os cupons de desconto disponíveis. */
+$sql = sprintf("SELECT id, label, freebie_days, redeem_date, expire_date FROM mob_all_coupons WHERE fb_uid = %s;"
+				, $fb_profile->getProperty('id'));
+$res = mysqli_query($db, $sql);
+
+/* Lista todos os cupons, resgatando-os conforme possível. */
+$coupons = array();
+
+while ($row = mysqli_fetch_assoc($res))
+{
+	$item = array();
+	$item['label'] = $row['label'];
+	$item['redeem_date'] = fromsqldate($row['redeem_date']);
+	$item['expire_date'] = fromsqldate($row['expire_date']);
+	
+	if (is_null($item['redeem_date']))
+	{
+		$item['status_color'] = "info";
+		$item['status_text'] = "Disponível";
+	}
+	else
+	{
+		$item['status_color'] = "success";
+		$item['status_text'] = "Ativo";
+	}
+	
+	$coupons[] = $item;
+}
 
 /* Fecha a conexão com o banco de dados. */
 mysqli_close($db);
@@ -136,6 +182,7 @@ mysqli_close($db);
 						<div class="tab-pane" id="cupons">
 							<div class="row">
 								<div class="span5">
+									<?php if (count($coupons) > 0) { ?>
 									<table class="table table-striped table-condensed">
 										  <thead>
 										  <tr>
@@ -146,14 +193,19 @@ mysqli_close($db);
 										  </tr>
 									  </thead>   
 									  <tbody>
+										<?php foreach ($coupons as $item) { ?>
 										<tr>
-											<td>Promoção 7 dias GRÁTIS!</td>
-											<td>22/07/2014</td>
-											<td>29/07/2014</td>
-											<td><span class="label label-success">Ativo</span></td>
+											<td><?php print($item['label']); ?></td>
+											<td><?php print($item['redeem_date']); ?></td>
+											<td><?php print($item['expire_date']); ?></td>
+											<td><span class="label label-<?php print($item['status_color']); ?>"><?php print($item['status_text']); ?></span></td>
 										</tr>
+										<?php } ?>
 									  </tbody>
 									</table>
+									<?php } else { ?>
+									Nenhum cupom em sua conta.
+									<?php } ?>
 								</div>
 							</div>
 						</div>
