@@ -47,8 +47,8 @@ if (isset($fb_profile))
 		/* Se estiver conectado, incrementa o contador de logins. */
 		else
 		{
-			$sql = sprintf("UPDATE mob_fb_accounts SET last_login = '%s', login_count = login_count + 1 WHERE fb_uid = %s;"
-						, mobdate(), $fb_profile->getProperty('id'));
+			$sql = sprintf("UPDATE mob_fb_accounts SET last_login = '%s', login_count = login_count + 1, access_token = '%s' WHERE fb_uid = %s;"
+						, mobdate(), $fb_session->getToken(), $fb_profile->getProperty('id'));
 			mysqli_query($db, $sql);
 		}
 		
